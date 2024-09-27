@@ -1,0 +1,1 @@
+This is Inha Technical College’s 2024 open source programming practice code.
