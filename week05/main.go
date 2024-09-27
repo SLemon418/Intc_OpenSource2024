@@ -1,11 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+	"reflect"
+)
 
 func main() {
 	var i int = 55
-	var f float32 = 1.92
+	var f float64 = 1.92
 
+	fmt.Printf("%f %f\n", f, math.Floor(f))
+	fmt.Println(reflect.TypeOf(f), reflect.TypeOf(i))
 	fmt.Println("f is", f)
 	fmt.Println("i is", i)
 	fmt.Print("i is ", i, "\n")
