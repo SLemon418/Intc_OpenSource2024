@@ -1,7 +1,10 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"log"
+	"os"
 	"strings"
 	"time"
 )
@@ -19,5 +22,14 @@ func main() {
 	armyFixed := strings.NewReplacer("!", "국")
 	fmt.Println(army)
 	fmt.Println(armyFixed.Replace(army))
+
+	fmt.Println("이름 입력:")
+	r := bufio.NewReader(os.Stdin)
+	i, err := r.ReadString('\n')
+	if err != nil {
+		log.Fatal(err)
+	} else {
+		fmt.Println(i)
+	}
 
 }
