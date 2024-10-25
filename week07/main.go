@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -32,4 +33,17 @@ func main() {
 		fmt.Println(i)
 	}
 
+	score, err := r.ReadString('\n')
+	if err != nil {
+		log.Fatal(err)
+	}
+	score = strings.TrimSpace(score)
+	realScore, err := strconv.ParseInt(score, 16, 32)
+	var grade string
+	if realScore >= 90 {
+		grade = "A"
+	} else {
+		grade = "BCDF"
+	}
+	fmt.Printf("%d점은 %s등급 입니다\n", realScore, grade)
 }
