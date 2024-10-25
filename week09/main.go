@@ -16,13 +16,14 @@ func main() {
 	fmt.Println("주사위 값", answer)
 
 	for guesses := 0; guesses < 3; guesses++ {
-		fmt.Print("주사위 값을 추측해보세요: ")
+		fmt.Printf("%d번의 기회가 남았습니다. 주사위 값을 추측해보세요: ", 3-guesses)
 		reader := bufio.NewReader(os.Stdin)
 		input, _ := reader.ReadString('\n')
 		input = strings.TrimSpace(input)
 		guess, err := strconv.Atoi(input)
 		if err != nil {
 			fmt.Println("숫자만 입력하세요.")
+			guesses--
 		} else {
 			if guess == answer {
 				fmt.Println("맞았습니다!")
