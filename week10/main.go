@@ -23,16 +23,16 @@ func main() {
 		log.Fatal(err)
 	}
 
-	counts := 0
-	i := 1
+	isprime := true
+	i := 2
 	for i <= realNum/i {
 		if realNum%i == 0 {
-			counts++
+			isprime = false
 			break
 		}
 		i++
 	}
-	if counts == 0 && realNum < 2 {
+	if isprime && realNum >= 2 {
 		fmt.Println(realNum, "은 소수 입니다.")
 	} else {
 		fmt.Println(realNum, "은 소수가 아닙니다.")
