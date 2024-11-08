@@ -1,29 +1,9 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"log"
-	"os"
-	"strconv"
-	"strings"
+	"week11/keyboard"
 )
-
-func getinteger() int {
-	r := bufio.NewReader(os.Stdin)
-	num, err := r.ReadString('\n')
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	num = strings.TrimSpace(num)
-	realNum, err := strconv.Atoi(num)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	return realNum
-}
 
 func isprime(num int) bool {
 	if num < 2 {
@@ -47,9 +27,9 @@ func isprime(num int) bool {
 func main() {
 	fmt.Print("첫번쨰 정수 입력 : ")
 
-	first := getinteger()
+	first := keyboard.Getinteger()
 	fmt.Print("두번쨰 정수 입력 : ")
-	last := getinteger()
+	last := keyboard.Getinteger()
 
 	for i := first; i <= last; i++ {
 		if isprime(i) {
