@@ -27,9 +27,15 @@ func isprime(num int) bool {
 func main() {
 	fmt.Print("첫번쨰 정수 입력 : ")
 
-	first := keyboard.Getinteger()
+	first, err := keyboard.Getinteger()
+	if err != nil {
+		fmt.Println(err)
+	}
 	fmt.Print("두번쨰 정수 입력 : ")
-	last := keyboard.Getinteger()
+	last, err := keyboard.Getinteger()
+	if err != nil {
+		fmt.Println(err)
+	}
 
 	for i := first; i <= last; i++ {
 		if isprime(i) {

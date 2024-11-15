@@ -2,24 +2,39 @@ package keyboard
 
 import (
 	"bufio"
-	"log"
 	"os"
 	"strconv"
 	"strings"
 )
 
-func Getinteger() int {
+func Getinteger() (int, error) {
 	r := bufio.NewReader(os.Stdin)
 	num, err := r.ReadString('\n')
 	if err != nil {
-		log.Fatal(err)
+		return 0, err
 	}
 
 	num = strings.TrimSpace(num)
 	realNum, err := strconv.Atoi(num)
 	if err != nil {
-		log.Fatal(err)
+		return 0, err
 	}
 
-	return realNum
+	return realNum, nil
+}
+
+func Getfloat() (float64, error) {
+	r := bufio.NewReader(os.Stdin)
+	num, err := r.ReadString('\n')
+	if err != nil {
+		return 0, err
+	}
+
+	num = strings.TrimSpace(num)
+	realNum, err := strconv.ParseFloat(num, 64)
+	if err != nil {
+		return 0, err
+	}
+
+	return realNum, nil
 }
